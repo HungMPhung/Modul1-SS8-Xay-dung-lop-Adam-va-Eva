@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Adam va Eva</title>
+</head>
+<body>
+<script>
+    function Apple() {
+        let weight = 10;
+
+        this.getWeight = function () {
+            return weight;
+        };
+
+        this.setWeight = function (weightA) {
+            weight = weightA;
+        };
+
+        this.isEmpty = function () {
+            return !(weight > 0);
+        };
+
+        this.decreaseApple = function () {
+            if (weight > 1) {
+                weight--;
+            }
+            console.log("khoi luong tao sau khi an la: " + weight);
+        };
+    }
+
+    function Human(nameA, gender, weightA) {
+
+        let name = nameA;
+        let weight1 = weightA;
+        this.gender = gender;
+
+        this.isMale = function () {
+            return this.gender;
+        };
+
+        this.setGender = function () {
+            this.gender = gender;
+        };
+
+        this.checkApple = function (Apple) {
+            return !Apple.isEmpty();
+        };
+
+        this.eatApple = function (Apple) {
+            if (this.checkApple(Apple)) {
+                weight1++;
+                Apple.decreaseApple();
+            }
+        };
+
+        this.getWeight1 = function () {
+            return weight1;
+        };
+
+        this.setWeight1 = function (weightA) {
+            weight1 = weightA;
+        };
+
+        this.getName = function () {
+            return name;
+        };
+
+        this.setName = function (nameA) {
+            name = nameA;
+        };
+
+    }
+
+    function eatApple() {
+        document.write(adam.getName() + " can nang " + adam.getWeight1() + " truoc khi an tao" + "<br/>");
+        document.write(eva.getName() + " can nang " + eva.getWeight1() + " truoc khi an tao" + "<br/>");
+
+        if (!apple1.isEmpty()) {
+            for (let i = 0; i < apple1.getWeight(); i++) {
+                adam.eatApple(apple1);
+                eva.eatApple(apple1);
+
+                document.write(adam.getName() + " can nang " + adam.getWeight1() + " sau khi an tao" + "<br/>");
+                document.write(eva.getName() + " can nang " + eva.getWeight1() + " sau khi an tao" + "<br/>");
+            }
+            document.write("Adam va Eva da an het tao!");
+        }
+    }
+
+    let apple1 = new Apple();
+    let adam = new Human("Adam", true, 73);
+    let eva = new Human("Eva", false, 52);
+
+    eatApple();
+</script>
+</body>
+</html>
